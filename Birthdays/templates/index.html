@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
+        <title>Birthdays</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Birthdays</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+
+                <h2>Add a Birthday</h2>
+                <form action="/" method="post">
+                    <input autocomplete="off" autofocus name="name" type="text" required placeholder="Name">
+                        <select required style="width:25%; border-radius:0.5rem; height:1.8rem; border-color:#000"  name="month">
+                            <option disable selected value="">Month</option>
+                            {% for month in months %}
+                                <option>{{ month }}</option>
+                            {% endfor %}
+                        </select>
+                    <input type="number" placeholder="Day" required name="day">
+                    <input type="submit"><br>
+                </form>
+            </div>
+
+            <div class="section">
+
+                <h2>All Birthdays</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Birthday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loop through the database entries to display them in this table -->
+                        {% for birthday in birthdays %}
+                            <tr>
+                                <td>{{ birthday["name"] }}</td>
+                                <td>{{ birthday["month"] }} {{ birthday["day"] }}
+                                </td>
+                                <td style="width:5rem; background-color:#fff">
+                                    <form action="/remove" method="post">
+                                        <input name="id" type="hidden" value="{{ birthday.id }}">
+                                        <input type="submit" value="X" style="width:50%; position:relative; bottom:1rem">
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

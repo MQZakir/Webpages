@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <div class="mb-3" style="margin-top:5rem">
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Transaction</th>
+              <th scope="col">Symbol</th>
+              <th scope="col">Name</th>
+              <th scope="col">Shares</th>
+              <th scope="col">Price (1 share)</th>
+              <th scope="col">Total</th>
+              <th scope="col">Date | Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in orders %}
+              <tr>
+                <th scope="row">{{ "BOUGHT" if order["shares"] > 0 else "SOLD" }}</th>
+                <td>{{ order["symbol"] }}</td>
+                <td>{{ order["name"] }}</td>
+                <td>{{ order["shares"] }}</td>
+                <td>{{ order["price"] }}</td>
+                <td>{{ order["total"] }}</td>
+                <td>{{ order["time"] }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+{% endblock %}

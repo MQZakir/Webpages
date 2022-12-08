@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" method="post">
+        <div class="mb-3">
+            <select required style="width:25%; border-radius:0.5rem; height:2rem"  name="symbol">
+                <option disable selected value="">Select symbol of stock</option>
+                    {% for own in owns %}
+                        <option>{{ own }}</option>
+                    {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" class="form-control mx-auto"style="width:25%;" id="shares" name="shares" placeholder="Enter the number of shares you would like to sell" required type="number">
+        </div>
+        <div>
+          <input type="submit" value="Sell stocks">
+        </div>
+        <div>
+            {% if invalid %}
+                <p align="center" style="font-size:1rem; color:red;">You do not own {{ shares }} shares of {{ symbol }}</p>
+            {% endif %}
+        </div>
+        <div>
+            {% if success %}
+                <p align="center" style="font-size:1rem; color:green;">Successful sale for "{{ symbol }}": {{ name }}</p>
+            {% endif %}
+        </div>
+    </form>
+
+    <div class="mb-3" style="margin-top:5rem">
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Symbol</th>
+              <th scope="col">Name</th>
+              <th scope="col">Shares</th>
+              <th scope="col">Price (1 share)</th>
+              <th scope="col">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for sell in sells %}
+              <tr>
+                <td>{{ sell["symbol"] }}</td>
+                <td>{{ sell["name"] }}</td>
+                <td>{{ sell["shares"] }}</td>
+                <td>{{ sell["price"] }}</td>
+                <td>{{ sell["total"] }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+{% endblock %}

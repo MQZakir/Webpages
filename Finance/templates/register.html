@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto" style="width:50%;" id="name" name="name" placeholder="Name" required type="text">
+            <p style="width:50%; font-size:0.7rem; position:relative; left:3.3rem">Enter your full name</p>
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" class="form-control mx-auto" style="width:50%" id="username" name="username" placeholder="Username" required type="text">
+            <p style="width:50%; font-size:0.7rem; position:relative; left:7rem">No special characters (!,<,>,@,#,$,%,^,&,*,?)</p>
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto" id="password" name="password" style="width:50%" placeholder="Password" required type="password">
+            <p style="width:50%; font-size:0.7rem; position:relative; left:3.5rem">8-16 characters only</p>
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" class="form-control mx-auto" style="width:50%" id="confirmation" name="confirmation" placeholder="Confirmation" required type="password">
+            <p style="width:50%; font-size:0.7rem; position:relative; left:3.9rem">Passwords must match</p>
+        </div>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+{% endblock %}

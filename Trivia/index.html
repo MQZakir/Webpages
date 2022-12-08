@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <!-- Multiple choice questions' script -->
+        <script src = "answer_check_MC.js"></script>
+
+        <!-- Free answer questions' script -->
+        <script src = "answer_check_FA.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                    <h3>What is the number of states in USA?</h3>
+                    <button class = "incorrect1">24</button>
+                    <button class = "correct1">50</button> <!--Correct answer-->
+                    <button class = "incorrect1">60</button>
+                    <button class = "incorrect1">49</button>
+                    <p id = "feedback1"></p>
+                </hr>
+            </div>
+
+            <div class="section">
+                <hr>
+                    <h3>Who had the longest tenure as President of USA?</h3>
+                    <button class = "incorrect2">John F. Kennedy</button>
+                    <button class = "incorrect2">George Washington</button>
+                    <button class = "correct2">Frankiln D. Roosevelt</button> <!--Correct answer-->
+                    <button class = "incorrect2">James Carter</button>
+                    <p id = "feedback2"></p>
+            </div>
+
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                    <h3>What is the official language of the United States of America?</h3>
+                    <input type = "text" id = 'input1'></input>
+                    <button id = "answer1">Submit</button>
+                    <p id = "feedback3"></p>
+                </hr>
+            </div>
+
+            <div class="section">
+                <hr>
+                <h3>How much is a dime?</h3>
+                <input type = "text" id = 'input2'></input>
+                <button id = "answer2">Submit</button>
+                <p id = "feedback4"></p>
+            </div>
+
+
+        </div>
+    </body>
+</html>
